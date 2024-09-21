@@ -76,6 +76,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "VS2022", "VS2022", "{10319C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tools.BuildTasks-2022", "Tools.BuildTasks-2022\Tools.BuildTasks-2022.csproj", "{552C2500-2C53-4148-A422-0ED983EF135D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Targeting.Tooling", "Targeting.Tooling", "{3011921A-8C4B-4E81-9F34-7FD11A613F72}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Targeting.Tooling", "Targeting.Versioning\Targeting.Tooling\Targeting.Tooling.csproj", "{F8129EBF-4BCA-4874-B389-779428419E9F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Targeting.Tooling.Tests", "Targeting.Versioning\Targeting.Tooling.Tests\Targeting.Tooling.Tests.csproj", "{B49604ED-920E-48E1-9C44-85FF49F5BE00}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -261,6 +267,30 @@ Global
 		{552C2500-2C53-4148-A422-0ED983EF135D}.Release|x64.Build.0 = Release|Any CPU
 		{552C2500-2C53-4148-A422-0ED983EF135D}.Release|x86.ActiveCfg = Release|Any CPU
 		{552C2500-2C53-4148-A422-0ED983EF135D}.Release|x86.Build.0 = Release|Any CPU
+		{F8129EBF-4BCA-4874-B389-779428419E9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8129EBF-4BCA-4874-B389-779428419E9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8129EBF-4BCA-4874-B389-779428419E9F}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{F8129EBF-4BCA-4874-B389-779428419E9F}.Debug|x64.Build.0 = Debug|Any CPU
+		{F8129EBF-4BCA-4874-B389-779428419E9F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F8129EBF-4BCA-4874-B389-779428419E9F}.Debug|x86.Build.0 = Debug|Any CPU
+		{F8129EBF-4BCA-4874-B389-779428419E9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8129EBF-4BCA-4874-B389-779428419E9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8129EBF-4BCA-4874-B389-779428419E9F}.Release|x64.ActiveCfg = Release|Any CPU
+		{F8129EBF-4BCA-4874-B389-779428419E9F}.Release|x64.Build.0 = Release|Any CPU
+		{F8129EBF-4BCA-4874-B389-779428419E9F}.Release|x86.ActiveCfg = Release|Any CPU
+		{F8129EBF-4BCA-4874-B389-779428419E9F}.Release|x86.Build.0 = Release|Any CPU
+		{B49604ED-920E-48E1-9C44-85FF49F5BE00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B49604ED-920E-48E1-9C44-85FF49F5BE00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B49604ED-920E-48E1-9C44-85FF49F5BE00}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{B49604ED-920E-48E1-9C44-85FF49F5BE00}.Debug|x64.Build.0 = Debug|Any CPU
+		{B49604ED-920E-48E1-9C44-85FF49F5BE00}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B49604ED-920E-48E1-9C44-85FF49F5BE00}.Debug|x86.Build.0 = Debug|Any CPU
+		{B49604ED-920E-48E1-9C44-85FF49F5BE00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B49604ED-920E-48E1-9C44-85FF49F5BE00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B49604ED-920E-48E1-9C44-85FF49F5BE00}.Release|x64.ActiveCfg = Release|Any CPU
+		{B49604ED-920E-48E1-9C44-85FF49F5BE00}.Release|x64.Build.0 = Release|Any CPU
+		{B49604ED-920E-48E1-9C44-85FF49F5BE00}.Release|x86.ActiveCfg = Release|Any CPU
+		{B49604ED-920E-48E1-9C44-85FF49F5BE00}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -288,13 +318,17 @@ Global
 		{A72AC05E-811D-4B37-A18C-C50A1B29105E} = {60B109AE-E582-4ECB-ABB4-B24E07DB87E1}
 		{10319C7F-AC22-4640-BFDA-ADB076F506EF} = {60B109AE-E582-4ECB-ABB4-B24E07DB87E1}
 		{552C2500-2C53-4148-A422-0ED983EF135D} = {BA15D640-224B-4CE0-B143-CFC4D80AAED9}
+		{F8129EBF-4BCA-4874-B389-779428419E9F} = {3011921A-8C4B-4E81-9F34-7FD11A613F72}
+		{B49604ED-920E-48E1-9C44-85FF49F5BE00} = {3011921A-8C4B-4E81-9F34-7FD11A613F72}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {82FA89F8-D9B1-4038-94B1-D91265C0B0AC}
 	EndGlobalSection
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		CSharp.TestApplication\CSharp.TestApplication.Shared.projitems*{0a06b3c4-5813-439e-85ef-6d584a4e03ed}*SharedItemsImports = 13
+		nf-debugger\nanoFramework.Tools.DebugLibrary.Shared\nanoFramework.Tools.DebugLibrary.Net.projitems*{101d57ad-d22f-4905-a992-de15e723f164}*SharedItemsImports = 5
 		CSharp.TestApplication\CSharp.TestApplication.Shared.projitems*{3040ba82-56cc-4189-a26c-cabb4b6b7b87}*SharedItemsImports = 4
+		nf-debugger\nanoFramework.Tools.DebugLibrary.Shared\nanoFramework.Tools.DebugLibrary.Net.projitems*{31472cae-4b1a-4ab9-9b2a-8f28dbe01bcf}*SharedItemsImports = 13
 		CSharp.ClassLibrary\CSharp.ClassLibrary.Shared.projitems*{4aa9a693-ff7c-4f84-b0ce-28a7ee009471}*SharedItemsImports = 4
 		CSharp.BlankApplication\CSharp.BlankApplication.Shared.projitems*{572121bd-e972-4bf7-abf1-78251dde1181}*SharedItemsImports = 4
 		CSharp.ClassLibrary\CSharp.ClassLibrary.Shared.projitems*{5dc66510-7529-477b-98a8-733a792ddd14}*SharedItemsImports = 4
@@ -303,6 +337,7 @@ Global
 		vs-extension.shared\vs-extension.shared.projitems*{b16737e2-4b5d-4048-a740-2bb1df462637}*SharedItemsImports = 13
 		CSharp.BlankApplication\CSharp.BlankApplication.Shared.projitems*{c5a2cf84-5591-4c33-8cf7-6c949531bfb1}*SharedItemsImports = 13
 		CSharp.BlankApplication\CSharp.BlankApplication.Shared.projitems*{cd034c5a-a9eb-4c8e-b163-0ba9619cd122}*SharedItemsImports = 4
+		metadata-processor\MetadataProcessor.Shared\MetadataProcessor.Shared.projitems*{e32f7d15-2499-440c-8026-4d5ee1c5ec3a}*SharedItemsImports = 4
 		vs-extension.shared\vs-extension.shared.projitems*{e3e5b359-8e18-4b7d-8469-f93c6867d712}*SharedItemsImports = 4
 		CSharp.ClassLibrary\CSharp.ClassLibrary.Shared.projitems*{faa194f0-5c3b-46c7-977b-d2a84444bf80}*SharedItemsImports = 13
 	EndGlobalSection
