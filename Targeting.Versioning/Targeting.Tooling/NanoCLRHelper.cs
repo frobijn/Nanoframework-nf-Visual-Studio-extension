@@ -128,6 +128,12 @@ namespace nanoFramework.Targeting.Tooling
             get;
             private set;
         } = false;
+
+        /// <summary>
+        /// Get the absolute path to the global nanoCLR tool.
+        /// </summary>
+        public static string GlobalNanoCLRFilePath
+            => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), ".dotnet", "tools", "nanoclr.exe");
         #endregion
 
         #region Methods
@@ -243,7 +249,7 @@ namespace nanoFramework.Targeting.Tooling
             }
             else
             {
-                return Path.Combine(Environment.GetEnvironmentVariable("USERPROFILE")!, ".dotnet", "tools", LockFileDirectoryName);
+                return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), ".dotnet", "tools", LockFileDirectoryName);
             }
         }
 
@@ -654,7 +660,7 @@ namespace nanoFramework.Targeting.Tooling
             // should we use a local nanoCLR instance?
             if (NanoCLRInstanceDirectoryPath is not null)
             {
-                arguments.Append($" --clrinstance \"{NanoCLRInstanceDirectoryPath}\"");
+                arguments.Append($" --clrpath \"{NanoCLRInstanceDirectoryPath}\"");
             }
 
             logger?.Invoke(LoggingLevel.Detailed,
@@ -677,13 +683,13 @@ namespace nanoFramework.Targeting.Tooling
             }
 
             List<NativeAssemblyMetadata>? result = null;
-            foreach (var line in cliResult.StandardOutput.Split('\r', '\n'))
+            foreach (string line in cliResult.StandardOutput.Split('\r', '\n'))
             {
                 if (string.IsNullOrWhiteSpace(line))
                 {
                     continue;
                 }
-                if (line.StartsWith("Native assembly,"))
+                if (line.StartsWith("Native assemblies:"))
                 {
                     // Metadata is available
                     result ??= [];
@@ -691,10 +697,30 @@ namespace nanoFramework.Targeting.Tooling
                 else if (result is not null)
                 {
                     // Must be a line with metadata of a native assembly
-                    string[] metadata = line.Split(',');
-                    if (metadata.Length == 3 && uint.TryParse(metadata[2], NumberStyles.HexNumber, null, out uint checkSum))
+                    string[] parts = line.Split([' '], StringSplitOptions.RemoveEmptyEntries);
+                    if (parts.Length == 3)
                     {
-                        result.Add(new NativeAssemblyMetadata(metadata[0], metadata[1], checkSum));
+                        uint checksum;
+                        if (parts[2].StartsWith("0x"))
+                        {
+#pragma warning disable IDE0079 // Next supression cannot be omitted
+#pragma warning disable CA1846 // Prefer 'AsSpan' over 'Substring' // Overload not available
+                            if (!uint.TryParse(parts[2].Substring(2), NumberStyles.HexNumber, null, out checksum))
+                            {
+                                continue;
+                            }
+#pragma warning restore CA1846 // Prefer 'AsSpan' over 'Substring'
+#pragma warning restore IDE0079
+                        }
+                        else
+                        {
+                            if (!uint.TryParse(parts[2], out checksum))
+                            {
+                                continue;
+                            }
+                        }
+
+                        result.Add(new NativeAssemblyMetadata(parts[0], parts[1].StartsWith("v") ? parts[1].Substring(1) : parts[1], checksum));
                     }
                 }
             }

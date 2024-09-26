@@ -6,6 +6,8 @@
     <LangVersion>latest</LangVersion>
     <ImplicitUsings>disable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <SignAssembly>True</SignAssembly>
+    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
 
     <IsPackable>false</IsPackable>
     <IsTestProject>true</IsTestProject>
@@ -14,17 +16,42 @@
   <ItemGroup>
     <None Remove="AssemblyMetadataTest.mscorlib.dll" />
     <None Remove="AssemblyMetadataTest.mscorlib.pe" />
+    <None Remove="DeploymentTargetsTest.ESP32_S3_ALL-1.12.0.52.zip" />
+    <None Remove="DeploymentTargetsTest.ESP32_S3_ALL-1.12.0.52.zip.json" />
+    <None Remove="DeploymentTargetsTest.ESP32_S3_ALL-1.12.0.53.zip" />
+    <None Remove="DeploymentTargetsTest.ESP32_S3_ALL-1.12.0.53.zip.json" />
+    <None Remove="DeploymentTargetsTest.ESP32_S3_BLE-1.12.0.118.zip" />
+    <None Remove="DeploymentTargetsTest.ESP32_S3_BLE-1.12.0.118.zip.json" />
+    <None Remove="DeploymentTargetsTest.WIN_DLL_nanoCLR-1.12.0.74.json" />
+    <None Remove="FirmwarePackageTest.NoMetadata.zip" />
+    <None Remove="FirmwarePackageTest.WithMetadata.zip" />
     <None Remove="NanoCLRHelperTest.nanoCLR.vOld.dll" />
+    <None Remove="NuGetPackageListTest.Detailed.txt" />
+    <None Remove="NuGetPackageListTest.Normal.txt" />
+    <None Remove="NuGetPackageListTest.packages.config" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="AssemblyMetadataTest.mscorlib.dll" />
     <EmbeddedResource Include="AssemblyMetadataTest.mscorlib.pe" />
+    <EmbeddedResource Include="FirmwarePackageTest.NoMetadata.zip" />
+    <EmbeddedResource Include="FirmwarePackageTest.WithMetadata.zip" />
+    <EmbeddedResource Include="DeploymentTargetsTest.ESP32_S3_ALL-1.12.0.52.zip" />
+    <EmbeddedResource Include="DeploymentTargetsTest.ESP32_S3_ALL-1.12.0.52.zip.json" />
+    <EmbeddedResource Include="DeploymentTargetsTest.ESP32_S3_ALL-1.12.0.53.zip" />
+    <EmbeddedResource Include="DeploymentTargetsTest.ESP32_S3_ALL-1.12.0.53.zip.json" />
+    <EmbeddedResource Include="DeploymentTargetsTest.ESP32_S3_BLE-1.12.0.118.zip" />
+    <EmbeddedResource Include="DeploymentTargetsTest.ESP32_S3_BLE-1.12.0.118.zip.json" />
+    <EmbeddedResource Include="DeploymentTargetsTest.WIN_DLL_nanoCLR-1.12.0.74.json" />
     <EmbeddedResource Include="NanoCLRHelperTest.nanoCLR.vOld.dll" />
+    <EmbeddedResource Include="NuGetPackageListTest.Detailed.txt" />
+    <EmbeddedResource Include="NuGetPackageListTest.Normal.txt" />
+    <EmbeddedResource Include="NuGetPackageListTest.packages.config" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="coverlet.collector" Version="3.2.0" />
+    <PackageReference Include="Microsoft.Build.Utilities.Core" Version="17.10.4" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.5.0" />
     <PackageReference Include="MSTest.TestAdapter" Version="2.2.10" />
     <PackageReference Include="MSTest.TestFramework" Version="2.2.10" />
@@ -32,6 +59,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Targeting.Tooling\Targeting.Tooling.csproj" />
+    <ProjectReference Include="..\Versioning.MSBuild\Versioning.MSBuild.csproj" />
   </ItemGroup>
 
   <ItemGroup>
